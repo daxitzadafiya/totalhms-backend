@@ -1,0 +1,346 @@
+[2023-10-17 10:26:43] local.INFO: cronjob run:--2023-10-17 12:26:43  
+[2023-10-17 10:26:43] local.INFO: task created:--2023-10-17 15:56:43  
+[2023-10-17 10:27:12] local.INFO: cronjob run:--2023-10-17 12:27:12  
+[2023-10-17 10:27:12] local.INFO: task created:--2023-10-17 15:57:12  
+[2023-10-17 12:06:41] local.INFO: cronjob run:--2023-10-17 03:06:41  
+[2023-10-17 12:06:59] local.INFO: cronjob run:--2023-10-17 03:06:59  
+[2023-10-17 12:07:07] local.INFO: cronjob run:--2023-10-17 03:07:07  
+[2023-10-17 12:07:29] local.INFO: cronjob run:--2023-10-17 03:07:29  
+[2023-10-17 12:07:46] local.INFO: cronjob run:--2023-10-17 03:07:46  
+[2023-10-17 12:07:47] local.INFO: cronjob run:--2023-10-17 03:07:47  
+[2023-10-17 12:08:06] local.INFO: cronjob run:--2023-10-17 03:08:06  
+[2023-10-17 12:09:43] local.INFO: cronjob run:--2023-10-17 03:09:43  
+[2023-10-17 12:09:57] local.INFO: cronjob run:--2023-10-17 03:09:57  
+[2023-10-17 12:10:37] local.INFO: cronjob run:--2023-10-17 03:10:37  
+[2023-10-17 12:10:39] local.INFO: cronjob run:--2023-10-17 03:10:39  
+[2023-10-17 12:12:27] local.INFO: cronjob run:--2023-10-17 03:12:27  
+[2023-10-17 12:16:13] local.INFO: cronjob run:--2023-10-17 03:16:13  
+[2023-10-17 12:17:00] local.INFO: cronjob run:--2023-10-17 03:17:00  
+[2023-10-17 12:21:21] local.INFO: cronjob run:--2023-10-17 03:21:21  
+[2023-10-17 12:21:49] local.INFO: cronjob run:--2023-10-17 03:21:49  
+[2023-10-17 12:21:49] local.INFO: name:- testing 0001start_date- 2023-10-17 15:57:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 023start_date- 2023-10-17 15:50:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- new test 123start_date- 2023-10-18 01:38:00today_date- 2023-10-17 03:21:49end_date- 2023-10-22 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- new test newstart_date- 2023-10-17 01:18:00today_date- 2023-10-17 03:21:49end_date- 2023-10-23 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- testing newstart_date- 2023-10-17 12:07:00today_date- 2023-10-17 03:21:49end_date- 2023-10-21 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- testing safagastart_date- 2023-10-17 23:47:00today_date- 2023-10-17 03:21:49end_date- 2023-10-25 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- testing (local)start_date- 2023-10-16 23:24:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test routine 02start_date- 2023-10-17 07:29:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test routine 01start_date- 2023-10-17 07:20:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test routine 01start_date- 2023-10-17 07:20:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- testing 01 notificationstart_date- 2023-10-17 07:21:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test notification 01start_date- 2023-10-17 07:14:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 00001start_date- 2023-10-17 06:19:00today_date- 2023-10-17 03:21:49end_date- 2023-10-18 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- testing 02start_date- 2023-10-17 06:17:00today_date- 2023-10-17 03:21:49end_date- 2023-10-21 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test oct-17 -2start_date- 2023-10-17 06:16:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 16-oct (1)start_date- 2023-10-16 06:09:00today_date- 2023-10-17 03:21:49end_date- 2023-10-21 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- testing loacl 06start_date- 2023-10-16 06:03:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 06:03:00  
+[2023-10-17 12:21:49] local.INFO: name:- sdfstart_date- 2023-10-18 05:49:00today_date- 2023-10-17 03:21:49end_date- 2023-10-19 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- testing local same as a livestart_date- 2023-10-17 05:44:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test local 6start_date- 2023-10-19 05:35:00today_date- 2023-10-17 03:21:49end_date- 2023-10-22 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 05 localstart_date- 2023-10-17 05:09:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 4 localstart_date- 2023-10-17 04:55:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 3 localstart_date- 2023-10-17 04:20:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 1start_date- 2023-10-17 04:12:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test local 2start_date- 2023-10-17 04:09:00today_date- 2023-10-17 03:21:49end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test local 1start_date- 2023-10-17 04:05:00today_date- 2023-10-17 03:21:49end_date- 2023-10-19 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- ABCstart_date- 2023-10-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-14 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- teststart_date- 2023-09-30 13:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-28 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- menustart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Drake Byrdstart_date- 2023-09-02 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-09-03 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Regan Prestonstart_date- 2023-09-02 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-09-03 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- check overheating of air conditioning systemsstart_date- 2023-08-29 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-30 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test1start_date- 2023-08-05 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-06 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- teststart_date- 2023-08-01 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-02 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Phoebe Knoxstart_date- 2023-08-02 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-03 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Ulla Barnesstart_date- 2023-08-01 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-02 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Vivien Dominguezstart_date- 2023-08-01 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-02 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Aspen Maysstart_date- 2023-08-01 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-01 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Annual security roundstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Moana Lawrencestart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Levi Warrenstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Levi Warrenstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-30 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Oscar Sotostart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Talon Currystart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Gisela Malonestart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Fitzgerald Trujillostart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Garrison Shermanstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- TESTIGN RESOURCE - 28072023- Taskstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Macy Carpenterstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Macy Carpenterstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Macy Carpenterstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Macy Carpenterstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Macy Carpenterstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- TESTIGN RESOURCE - 28072023- Taskstart_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- TESTIGN RESOURCE - 28072023start_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- TESTIGN RESOURCE - 28072023start_date- 2023-07-28 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-30 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- TESTIGN RESOURCE - 28072023- Taskstart_date- 2023-07-31 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-08-11 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Doris Henrystart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Daquan Schwartzstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- create objectstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 1970-01-01 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- template in CAstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 1970-01-01 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- SA template task CAstart_date- 2023-07-26 00:00:00today_date- 2023-10-17 03:21:49end_date- 1970-01-01 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- template add in SA task CA editstart_date- 2023-07-26 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Wallace Newtonstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Melyssa Snowstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Logan Villarrealstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Linus Eatonstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Scarlet Bauerstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Mannix Reedstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Kamal Carverstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Kato Meyersstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test live SA 123 updatestart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- CA template reminder teststart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Amelia Sharpestart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- dxcfgbstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test2start_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Gray Reillystart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Adena Sharpstart_date- 2023-07-26 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-27 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Colleen Copeland teststart_date- 2023-07-26 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-27 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Brenna Fischerstart_date- 2023-07-26 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-27 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test live SA 123 updatestart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test live SA 123 updatestart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Blossom Sanchez reminderstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- CA template taskstart_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- CA template reminder test 123start_date- 2023-07-25 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Ashton Frankstart_date- 2023-07-24 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-25 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Sean Moreno 123start_date- 2023-07-24 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-25 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Dora Burgessstart_date- 2023-07-19 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-20 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Crossing the street by footstart_date- 2023-07-19 00:00:00today_date- 2023-10-17 03:21:49end_date- 2024-12-31 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Cooper Harringtonstart_date- 2023-07-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-18 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Routine apr 14-49start_date- 2023-04-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- William Mirandastart_date- 2023-07-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- teststart_date- 2023-07-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-07-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Routine jul 12start_date- 2023-07-11 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-07-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 1start_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test1start_date- 2023-07-10 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-11 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Kieran Meyer updatestart_date- 2023-07-10 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-11 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Ruth Kerrstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Fuller Thomasstart_date- 2023-10-17 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Routine apr 20start_date- 2023-04-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Routine apr 20start_date- 2023-04-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Routine apr 20 1312start_date- 2023-04-13 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Cassandra Duranstart_date- 1970-01-01 00:00:00today_date- 2023-10-17 03:21:49end_date- 1970-01-02 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Cassandra Duranstart_date- 1970-01-01 00:00:00today_date- 2023-10-17 03:21:49end_date- 1970-01-02 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Liberty Joynerstart_date- 2023-07-05 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-06 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- Lavinia Heathstart_date- 2023-07-05 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-06 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 3start_date- 2023-07-05 00:00:00today_date- 2023-10-17 03:21:49end_date- 2024-07-01 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- test 1start_date- 2023-07-05 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-06 00:00:00  
+[2023-10-17 12:21:49] local.INFO: name:- teststart_date- 2023-07-04 00:00:00today_date- 2023-10-17 03:21:49end_date- 2023-07-05 00:00:00  
+[2023-10-17 12:22:17] local.INFO: cronjob run:--2023-10-17 03:22:17  
+[2023-10-17 12:22:17] local.INFO: name:- testing 0001 start_date- 2023-10-17 15:57:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 023 start_date- 2023-10-17 15:50:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- new test 123 start_date- 2023-10-18 01:38:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-22 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- new test new start_date- 2023-10-17 01:18:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-23 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- testing new start_date- 2023-10-17 12:07:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-21 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- testing safaga start_date- 2023-10-17 23:47:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-25 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- testing (local) start_date- 2023-10-16 23:24:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test routine 02 start_date- 2023-10-17 07:29:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test routine 01 start_date- 2023-10-17 07:20:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test routine 01 start_date- 2023-10-17 07:20:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- testing 01 notification start_date- 2023-10-17 07:21:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test notification 01 start_date- 2023-10-17 07:14:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 00001 start_date- 2023-10-17 06:19:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-18 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- testing 02 start_date- 2023-10-17 06:17:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-21 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test oct-17 -2 start_date- 2023-10-17 06:16:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 16-oct (1) start_date- 2023-10-16 06:09:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-21 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- testing loacl 06 start_date- 2023-10-16 06:03:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 06:03:00  
+[2023-10-17 12:22:17] local.INFO: name:- sdf start_date- 2023-10-18 05:49:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-19 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- testing local same as a live start_date- 2023-10-17 05:44:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test local 6 start_date- 2023-10-19 05:35:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-22 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 05 local start_date- 2023-10-17 05:09:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 4 local start_date- 2023-10-17 04:55:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 3 local start_date- 2023-10-17 04:20:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 1 start_date- 2023-10-17 04:12:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test local 2 start_date- 2023-10-17 04:09:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test local 1 start_date- 2023-10-17 04:05:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-19 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- ABC start_date- 2023-10-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-14 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test start_date- 2023-09-30 13:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-28 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- menu start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Drake Byrd start_date- 2023-09-02 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-09-03 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Regan Preston start_date- 2023-09-02 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-09-03 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- check overheating of air conditioning systems start_date- 2023-08-29 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-30 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test1 start_date- 2023-08-05 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-06 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test start_date- 2023-08-01 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-02 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Phoebe Knox start_date- 2023-08-02 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-03 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Ulla Barnes start_date- 2023-08-01 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-02 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Vivien Dominguez start_date- 2023-08-01 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-02 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Aspen Mays start_date- 2023-08-01 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-01 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Annual security round start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Moana Lawrence start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Levi Warren start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Levi Warren start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-30 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Oscar Soto start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Talon Curry start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Gisela Malone start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Fitzgerald Trujillo start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Garrison Sherman start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- TESTIGN RESOURCE - 28072023- Task start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Macy Carpenter start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Macy Carpenter start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Macy Carpenter start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Macy Carpenter start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Macy Carpenter start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- TESTIGN RESOURCE - 28072023- Task start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- TESTIGN RESOURCE - 28072023 start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-29 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- TESTIGN RESOURCE - 28072023 start_date- 2023-07-28 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-30 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- TESTIGN RESOURCE - 28072023- Task start_date- 2023-07-31 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-08-11 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Doris Henry start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Daquan Schwartz start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- create object start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 1970-01-01 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- template in CA start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 1970-01-01 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- SA template task CA start_date- 2023-07-26 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 1970-01-01 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- template add in SA task CA edit start_date- 2023-07-26 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Wallace Newton start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Melyssa Snow start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Logan Villarreal start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Linus Eaton start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Scarlet Bauer start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Mannix Reed start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Kamal Carver start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Kato Meyers start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test live SA 123 update start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- CA template reminder test start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Amelia Sharpe start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- dxcfgb start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test2 start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Gray Reilly start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Adena Sharp start_date- 2023-07-26 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-27 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Colleen Copeland test start_date- 2023-07-26 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-27 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Brenna Fischer start_date- 2023-07-26 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-27 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test live SA 123 update start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test live SA 123 update start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Blossom Sanchez reminder start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- CA template task start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- CA template reminder test 123 start_date- 2023-07-25 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-26 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Ashton Frank start_date- 2023-07-24 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-25 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Sean Moreno 123 start_date- 2023-07-24 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-25 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Dora Burgess start_date- 2023-07-19 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-20 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Crossing the street by foot start_date- 2023-07-19 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2024-12-31 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Cooper Harrington start_date- 2023-07-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-18 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Routine apr 14-49 start_date- 2023-04-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- William Miranda start_date- 2023-07-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test start_date- 2023-07-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-07-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Routine jul 12 start_date- 2023-07-11 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-07-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-14 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 1 start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test1 start_date- 2023-07-10 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-11 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Kieran Meyer update start_date- 2023-07-10 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-11 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Ruth Kerr start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Fuller Thomas start_date- 2023-10-17 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-10-17 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Routine apr 20 start_date- 2023-04-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Routine apr 20 start_date- 2023-04-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Routine apr 20 1312 start_date- 2023-04-13 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-04-15 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Cassandra Duran start_date- 1970-01-01 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 1970-01-02 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Cassandra Duran start_date- 1970-01-01 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 1970-01-02 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Liberty Joyner start_date- 2023-07-05 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-06 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- Lavinia Heath start_date- 2023-07-05 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-06 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 3 start_date- 2023-07-05 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2024-07-01 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test 1 start_date- 2023-07-05 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-06 00:00:00  
+[2023-10-17 12:22:17] local.INFO: name:- test start_date- 2023-07-04 00:00:00 today_date- 2023-10-17 03:22:17 end_date- 2023-07-05 00:00:00  
+[2023-10-17 12:23:30] local.INFO: cronjob run:--2023-10-17 03:23:30  
+[2023-10-19 08:55:05] local.INFO: cronjob run  
+[2023-10-19 08:55:05] local.INFO: task created:--2023-10-19 14:25:05  
+[2023-10-20 08:53:43] local.INFO: cronjob run  
+[2023-10-20 08:53:43] local.INFO: task created:--2023-10-20 14:23:43  
+[2023-10-19 09:03:15] local.INFO: cronjob run  
+[2023-10-19 09:03:15] local.INFO: task created:--2023-10-19 14:33:15  
+[2023-11-21 09:01:19] local.INFO: cronjob run  
+[2023-11-19 09:01:05] local.INFO: cronjob run  
+[2023-11-19 09:01:05] local.INFO: task created:--2023-11-19 14:31:05  
+[2023-10-27 09:35:48] local.INFO: cronjob run  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: send reminder:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: send reminder:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: send reminder:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: send reminder:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: send reminder:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: send reminder:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:35:48] local.INFO: task created:--2023-10-27 15:05:48  
+[2023-10-27 09:38:22] local.INFO: cronjob run  
+[2023-10-27 09:38:22] local.INFO: task created:--2023-10-27 15:08:22  
+[2023-10-27 09:44:05] local.INFO: cronjob run  
+[2023-10-27 09:44:05] local.INFO: task created:--2023-10-27 15:14:05  
+[2023-10-27 09:45:30] local.INFO: cronjob run  
+[2023-10-27 09:46:30] local.INFO: cronjob run  
+[2023-10-27 09:46:30] local.INFO: task created:--2023-10-27 15:16:30  
+[2023-10-27 10:04:06] local.INFO: cronjob run  
+[2023-10-27 10:04:07] local.INFO: task created:--2023-10-27 15:34:07  
+[2023-10-27 10:04:07] local.INFO: task created:--2023-10-27 15:34:07  
+[2023-10-27 10:47:44] local.INFO: cronjob run  
+[2023-10-27 10:48:05] local.INFO: cronjob run  
+[2023-10-27 10:48:05] local.INFO: task created:--2023-10-27 16:18:05  
+[2023-10-27 12:01:51] local.INFO: cronjob run  
+[2023-10-27 12:01:51] local.INFO: task created:--2023-10-27 17:31:51  
+[2023-10-27 12:02:12] local.INFO: cronjob run  
+[2023-10-27 12:03:25] local.INFO: cronjob run  
+[2023-10-27 12:04:40] local.INFO: cronjob run  
+[2023-10-27 12:05:10] local.INFO: cronjob run  
+[2023-10-27 12:05:30] local.INFO: cronjob run  
+[2023-10-27 12:05:58] local.INFO: cronjob run  
+[2023-10-27 12:07:03] local.INFO: cronjob run  
+[2023-10-27 12:07:50] local.INFO: cronjob run  
+[2023-10-27 12:11:45] local.INFO: cronjob run  
+[2023-10-27 12:12:25] local.INFO: cronjob run  
+[2023-10-27 12:12:46] local.INFO: cronjob run  
+[2023-10-27 12:13:17] local.INFO: cronjob run  
+[2023-10-27 12:22:37] local.INFO: cronjob run  
+[2023-10-27 12:28:45] local.INFO: cronjob run  
+[2023-10-27 12:28:45] local.INFO: task created:--2023-10-27 17:58:45  
+[2023-10-27 12:29:00] local.INFO: cronjob run  
+[2023-10-27 12:32:23] local.INFO: cronjob run  
+[2023-10-27 12:40:39] local.INFO: cronjob run  
+[2023-10-27 12:40:39] local.INFO: task created:--2023-10-27 18:10:39  
+[2023-10-28 12:40:59] local.INFO: cronjob run  
+[2023-10-28 12:40:09] local.INFO: cronjob run  
+[2023-10-28 12:40:09] local.INFO: task created:--2023-10-28 18:10:09  
+[2023-11-01 07:03:43] local.INFO: cronjob run  
+[2023-11-01 07:03:43] local.INFO: task created:--2023-11-01 12:33:43  
+[2023-11-01 07:30:26] local.INFO: cronjob run  
+[2023-11-01 07:30:26] local.INFO: task created:--2023-11-01 13:00:26  
+[2023-11-03 04:31:09] local.INFO: cronjob run  
+[2023-11-03 04:31:09] local.INFO: task created:--2023-11-03 10:01:09  
+[2023-11-18 04:29:55] local.INFO: cronjob run  
+[2023-11-18 04:29:51] local.INFO: cronjob run  
+[2023-11-19 04:29:48] local.INFO: cronjob run  
+[2023-11-18 04:29:53] local.INFO: cronjob run  
+[2023-11-03 04:38:04] local.INFO: cronjob run  
+[2023-11-03 04:38:04] local.INFO: task created:--2023-11-03 10:08:04  
+[2023-11-10 04:37:34] local.INFO: cronjob run  
+[2023-11-10 04:37:34] local.INFO: task created:--2023-11-10 10:07:34  
+[2023-11-03 04:49:09] local.INFO: cronjob run  
+[2023-11-03 04:49:09] local.INFO: task created:--2023-11-03 10:19:09  
+[2023-11-27 04:48:45] local.INFO: cronjob run  
+[2023-11-17 04:48:42] local.INFO: cronjob run  
+[2023-11-10 04:48:28] local.INFO: cronjob run  
+[2023-11-10 04:48:28] local.INFO: task created:--2023-11-10 10:18:28  
+[2023-11-17 04:48:06] local.INFO: cronjob run  
+[2023-11-17 04:48:06] local.INFO: task created:--2023-11-17 10:18:06  
+[2023-12-01 04:48:49] local.INFO: cronjob run  
+[2023-11-24 04:48:14] local.INFO: cronjob run  

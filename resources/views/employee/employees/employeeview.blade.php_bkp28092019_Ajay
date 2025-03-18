@@ -1,0 +1,594 @@
+@extends('templates.monster.main')
+@push('after-styles')
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/summernote/dist/summernote-bs4.css" rel="stylesheet" />
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+<style>
+    .note-toolbar.card-header {
+        background-color: bisque;
+    }
+
+
+    .align-self-center {
+        padding: 17px;
+        margin: 0 auto;
+    }
+</style>
+
+@endpush
+
+@push('after-scripts')
+
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/monster/js/jasny-bootstrap.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/sweetalert/sweetalert.min.js"></script>
+
+
+<script>
+    jQuery(document).ready(function() {
+        $(".s").summernote();
+        // $("#kontact").modal("show");
+        $(".edt").on("click", function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var relation = $(this).data('relation');
+            var cPhone = $(this).data('phone');
+            var cName = $(this).data('name');
+            var type = $(this).data('type');
+            $('#id').val(id);
+            $('#relation').val(relation);
+            $('#cName').val(cName);
+            $('#cPhone').val(cPhone);
+            $('#type').val(type);
+        })
+        $(".del").on("click", function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            if (id != "") {
+
+                swal({
+                    title: "Advarsel",
+                    text: "Are you sure want to delet!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ja, Save!",
+                    cancelButtonText: "Avbryt",
+                }).then(result => {
+                    // swal("Slettet!", "Sletting utført.", "success");
+                    $('.preloader').show();
+
+                    if (result.value) {
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: 'POST',
+                            url: '{{ url("/delete/dependant") }}',
+                            data: {
+                                'id': id,
+                                "table": "contactperson"
+                            },
+
+                        }).done(function(msg) {
+                            if (msg == 0) {
+                                $('.preloader').hide();
+                                //  e.closest('tr').remove();
+
+                                swal("Deleted!", " ", "success").then(function() {
+                                    $(this).parents('tr').first().hide();
+
+                                });
+                            } else {
+                                $('.preloader').hide();
+                                swal("error !", " ", "error").then(function() {
+                                    // location.reload();
+                                });
+                            }
+                        });
+
+                    } else if (
+                        // Read more about handling dismissals
+                        result.dismiss === swal.DismissReason.cancel
+                    ) {
+                        swal("Avbrutt", "Ingen ting ble slettet!", "error");
+                    }
+                    $('.preloader').hide();
+
+                    swal.closeModal();
+                });
+
+            }
+
+        });
+    });
+
+    function update() {
+        var datax = $('.needs-validation').serialize();
+        if (datax != "") {
+
+            // $('.preloader').show();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '{{ url("/add/dependant") }}',
+                data: datax,
+            }).done(function(data) {
+                if (data.success == true) {
+                    $('.preloader').hide();
+                    swal(data.msg, " ", "success").then(function() {
+                        location.reload();
+                    });
+                } else {
+                    $('.preloader').hide();
+                    printErrorMsg(data.error);
+
+                }
+            });
+        }
+    }
+
+    function addContact() {
+        var datax = $('.cvalid').serialize();
+        if (datax != "") {
+
+            // $('.preloader').show();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '{{ url("/add/contactperson") }}',
+                data: datax,
+            }).done(function(data) {
+                if (data.success == true) {
+                    $('.preloader').hide();
+
+                    $("#kontact").modal("hide");
+                    swal(data.msg, " ", "success").then(function() {
+                        location.reload();
+                    });
+                } else {
+                    $('.preloader').hide();
+                    printErrorMsg(data.error);
+
+                }
+            });
+        }
+    }
+
+    function printErrorMsg(msg) {
+        $(".print-error-msg").find("ul").html('');
+        $(".print-error-msg").css('display', 'block');
+        $.each(msg, function(key, value) {
+            $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
+        });
+    }
+
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            var cforms = document.getElementsByClassName('cvalid');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === true) {
+                        event.preventDefault();
+
+                        update(form);
+                    }
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+            var cvalidation = Array.prototype.filter.call(cforms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === true) {
+                        event.preventDefault();
+
+                        addContact(cforms);
+                    }
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+@endpush
+@section('content')
+
+@include('common.errors')
+@include('common.success')
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+@php
+if ($eData->profile_image) {
+$path = '/file_uploader/company/'.$eData->companyId.'/employee/profile/'. $eData->id .'/'. $eData->profile_image ;
+}else{
+$path = "/vendor/wrappixel/monster-admin/4.2.1/assets/images/users/1.jpg";
+}
+@endphp
+<div class="row">
+    <!-- Column -->
+    <div class="col-md-4 col-xs-12">
+        <div class="card">
+            <div class=" card-inverse social-profile d-flex ">
+                <div class="align-self-center"> <img src="{{ asset($path)}}" class="img-circle" width="100">
+                    <h4 class="card-title">{{ isset($eData->name) ? ucfirst($eData->name) : ''}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="card-body">
+                {{--
+            <small class="text-muted">Email address </small>
+                <h6>hannagover@gmail.com</h6> <small class="text-muted p-t-30 db">Phone</small>
+                <h6>+91 654 784 547</h6> <small class="text-muted p-t-30 db">Address</small>
+                <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div> <small class="text-muted p-t-30 db">Social Profile</small>
+                <br/>
+                <button class="btn btn-circle btn-secondary"><i class="fab fa-facebook"></i></button>
+                <button class="btn btn-circle btn-secondary"><i class="fab fa-twitter"></i></button>
+                <button class="btn btn-circle btn-secondary"><i class="fab fa-youtube"></i></button>
+            --}}
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-md-8 col-xs-12">
+        <div class="card">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs profile-tab" role="tablist">
+                <li class="nav-item "><a class="nav-link active" href="#profile" data-toggle="tab"> <span class="visible-xs"><i class="fa fa-user"></i></span> <span class="hidden-xs">Profile</span> </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#dependants" data-toggle="tab" aria-expanded="true"> <span class="visible-xs"><i class="icon-layers"></i></span> <span class="hidden-xs">Dependants</span> </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#projects" data-toggle="tab" aria-expanded="true"> <span class="visible-xs"><i class="icon-layers"></i></span> <span class="hidden-xs">Projects</span> </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#tasks" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="icon-list"></i></span> <span class="hidden-xs">Tasks</span> </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#leaves" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="icon-logout"></i></span> <span class="hidden-xs">Leaves</span> </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#docs" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="icon-docs"></i></span> <span class="hidden-xs">Documents</span> </a> </li>
+                <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab" aria-expanded="false"> <span class="visible-xs"><i class="icon-clock"></i></span> <span class="hidden-xs">Settings</span> </a> </li>
+
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="profile" role="tabpanel">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xs-6 col-md-4  b-r"> <strong>Navn</strong> <br>
+                                <p class="text-muted">{{ isset($eData->name)? ucfirst($eData->name) : 'Nil' }}</p>
+                            </div>
+                            <div class="col-md-4 col-xs-6 b-r"> <strong>E-post</strong> <br>
+                                <p class="text-muted">{{ isset($eData->email)? $eData->email : 'Nil' }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-4 "> <strong>Telefonnummer</strong> <br>
+                                <p class="text-muted">{{ isset($eData->phone)? $eData->phone : 'Nil' }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-4  b-r">
+                                <strong>Adresse</strong> <br>
+                                <p class="text-muted">{{ isset($eData->address)? ucfirst($eData->address) : 'Nil' }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-4  b-r">
+                                <strong>Poststed</strong> <br>
+                                <p class="text-muted">{{ isset($eData->city)? ucfirst($eData->city) : 'Nil' }}</p>
+                            </div>
+                            <div class="col-xs-6 col-md-4  b-r">
+                                <strong>Postnummer</strong> <br>
+                                <p class="text-muted">{{ isset($eData->zipcode)? ucfirst($eData->zipcode) : 'Nil' }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-6 b-r"> <strong>Job Title</strong> <br>
+                                <p class="text-muted">{{ isset($eData->role)? ucfirst($eData->role) : 'Nil' }}</p>
+                            </div>
+                            <div class="col-md-4 col-xs-6"> <strong>Department</strong> <br>
+                                <p class="text-muted">{{ isset($eData->departments)? $eData->departments : 'Nil' }}</p>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-6 b-r"> <strong>Nærmeste leder</strong> <br>
+                                <p class="text-muted">{{ isset($eData->nearest_manager)? $eData->nearest_manager : 'Nil' }}</p>
+                            </div>
+                            <div class="col-md-4 col-xs-6"> <strong>Ansatt dato</strong> <br>
+                                <p class="text-muted">{{ isset($eData->employed_since)? $eData->employed_since : 'Nil' }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-6 b-r"> <strong>Overtidstillegg</strong> <br>
+                                <p class="text-muted">{{ isset($eData->over_time)? $eData->over_time : 'Nil' }}</p>
+                            </div>
+                            <div class="col-md-4 col-xs-6"> <strong>Timelønn</strong> <br>
+                                <p class="text-muted">{{ isset($eData->salary)? $eData->salary : 'Nil' }}</p>
+                            </div>
+                            <div class="col-md-4 col-xs-6 b-r"> <strong>Helge-/nattillegg</strong> <br>
+                                <p class="text-muted">{{ isset($eData->night_allowance)? $eData->night_allowance : 'Nil' }}</p>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-6 b-r"> <strong>Skattekommune</strong> <br>
+                                <p class="text-muted">{{ isset($eData->tax_area)? $eData->tax_area : 'Nil' }}</p>
+                            </div>
+                            <div class="col-md-4 col-xs-6 b-r"> <strong>Stillingsbrøk: 0-100%</strong> <br>
+                                <p class="text-muted">{{ isset($eData->nearest_manager)? $eData->nearest_manager : 'Nil' }}</p>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-6"> <strong>Kontonr</strong> <br>
+                                <p class="text-muted">{{ isset($eData->acount_no)? $eData->acount_no : 'Nil' }}</p>
+                            </div>
+                            <div class="col-md-4 col-xs-6"> <strong>Ferie</strong> <br>
+                                <p class="text-muted">{{ isset($eData->holidays)? $eData->holidays : 'Nil' }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <!--second tab-->
+                <div class="tab-pane" id="dependants" role="tabpanel">
+                    <div class="card-body">
+                        <a href="javascript:void(0);" data-target="#kontact" data-toggle="modal" class="btn btn-inverse pull-right">Ny Dependant</a>
+                        <table class="table">
+                            <thead>
+                                <th>Navn</th>
+                                <th>Telefonnummer</th>
+                                <th>Relation</th>
+                                <th>Valg</th>
+                            </thead>
+                            @php
+                            if($eData->id){
+                            $dependents = \DB::table("dependants")->where("employee_id",$eData->id)->get();
+                            }
+                            @endphp
+                            <tbody>
+                                @if($dependents)
+                                @foreach ($dependents as $item)
+                                <tr>
+                                    <td>{{ $item->dName }}</td>
+                                    <td>{{ $item->dPhone }}</td>
+                                    <td>{{ $item->relation }}</td>
+                                    <td>
+                                        <a href="javascript:void(0);" data-id="{{$item->id}}"  data-name="{{$item->dName}}"  data-phone="{{$item->dPhone}}" data-relation="{{$item->relation}}" data-target="#kontact" data-toggle="modal" class="edt"><i class="icon-pencil"></i></a>
+                                        <a href="javascript:void(0);" data-id="{{$item->id}}" class="del"><i class="icon-trash"></i></a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                                @endif
+                            </tbody>
+
+                        </table>
+
+
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="projects" role="tabpanel">
+                    <div class="card-body">
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="settings" role="tabpanel">
+                    <div class="card-body">
+                        <form class="form-horizontal form-material">
+                            <div class="form-group">
+                                <label class="col-md-12">Full Name</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Johnathan Doe" class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-email" class="col-md-12">Email</label>
+                                <div class="col-md-12">
+                                    <input type="email" placeholder="johnathan@admin.com" class="form-control form-control-line" name="example-email" id="example-email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Password</label>
+                                <div class="col-md-12">
+                                    <input type="password" value="password" class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Phone No</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="123 456 7890" class="form-control form-control-line">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Message</label>
+                                <div class="col-md-12">
+                                    <textarea rows="5" class="form-control form-control-line"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-12">Select Country</label>
+                                <div class="col-sm-12">
+                                    <select class="form-control form-control-line">
+                                        <option>London</option>
+                                        <option>India</option>
+                                        <option>Usa</option>
+                                        <option>Canada</option>
+                                        <option>Thailand</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success">Update Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>
+
+
+<!--Kontatct Modal -->
+<div id="verticalcenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+                <form action="javascript:void(0);" class="needs-validation" novalidate>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Foretaksnavn</label>
+                                <input type="text" name="name" value="{{ (old('name') != '' ) ? old('name') : (isset($eData->bname) ? $eData->bname : '') }}" required class="form-control">
+                                <small class="invalid-feedback"> Name is required </small>
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Organisasjonsnummer</label>
+                                <input type="number" required name='vat_no' class="form-control  form-control-danger" value="{{ (old('vat_no') != '' ) ? old('vat_no') : (isset($eData->vat_no) ? $eData->vat_no : '') }}">
+                                <small class="invalid-feedback"> Organisasjonsnummer is required </small>
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Adresse</label>
+                                <input type="text" required name="address" class="form-control  form-control-danger" value="{{ (old('address') != '' ) ? old('address') : (isset($eData->address) ? $eData->address : '') }}">
+                                <small class="invalid-feedback"> Adresse required </small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Poststed</label>
+                                <input type="text" required name='city' class="form-control  form-control-danger" value="{{ (old('city') != '' ) ? old('city') : (isset($eData->city) ? $eData->city : '') }}">
+                                <small class="invalid-feedback"> Poststed required </small>
+                                <input type="hidden" name="id" value="{{ isset($eData->id) ? ($eData->id != 0 ) ? $eData->id : '' :''}}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Postnummer</label>
+                                <input type="text" required name="zipcode" class="form-control  form-control-danger" value="{{ (old('zipcode') != '' ) ? old('zipcode') : (isset($eData->zipcode) ? $eData->zipcode : '') }}">
+                                <small class="invalid-feedback"> Postnummer is required </small>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Kategori</label>
+                                @php
+                                $cat = \DB::table("all_category")->where("table_name","contacts")->get();
+                                @endphp
+                                @if($cat)
+                                <select name="category" required class="form-control custom-select">
+                                    <option value="">Select category
+                                    <option>
+                                        @foreach($cat as $data)
+                                    <option {{ (isset($eData->category) && ($eData->category == $data->id) ) ? "selected" : '' }} value="{{ $data->id }}">{{ $data->des}}</option>
+                                    @endforeach
+                                </select>
+                                <small class="invalid-feedback"> Kategori a category </small>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success waves-effect text-left">Lagre</button>
+                {{-- <button type="button" class="btn btn-danger waves-effect text-left">Sellte</button>--}}
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- Contak person modal -->
+<div id="kontact" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vcenter">Ny Dependant</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+                <form action="javascript:void(0);" class="cvalid" novalidate>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">Navn</label>
+                        <div class="col-lg-9">
+                            <input type="text" name="cNavn" id="cName" value="{{ (old('cNavn') != '' ) ? old('name') : '' }}" required class="form-control">
+                            <small class="invalid-feedback"> Navn is required </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">Relation</label>
+                        <div class="col-lg-9">
+                            <input type="text" name="relation" id="relation" value="{{ (old('relation') != '' ) ? old('relation') : ''}}" required class="form-control">
+                            <small class="invalid-feedback"> Epost is required </small>
+                            <input type="hidden" value="{{ isset($eData->id) ? $eData->id : ''}}" name="employee_id">
+                            <input type="hidden" id="id" value="0" name="id">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">Telefonnummer</label>
+                        <div class="col-lg-9">
+                            <input type="number" id="cPhone" name="dPhone" value="{{ (old('dPhone') != '' ) ? old('dPhone') :  '' }}" required class="form-control">
+                            <small class="invalid-feedback">Telefonnummer is required </small>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success waves-effect text-left">Lagre</button>
+                {{--<button type="button" class="btn btn-danger waves-effect text-left">Sellte</button>--}}
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@endsection
