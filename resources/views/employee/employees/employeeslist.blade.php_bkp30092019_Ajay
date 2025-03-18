@@ -1,0 +1,597 @@
+@extends('templates.monster.main')
+
+@push('before-styles')
+<style>
+    .clickbody {
+        position: absolute;
+    }
+
+    a.clickview {
+        position: absolute;
+        /* background: red; */
+        width: 100%;
+        height: 100%;
+        z-index: 111;
+    }
+
+    div#myTable_filter {
+        display: none;
+    }
+</style>
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/icheck/skins/all.css" rel="stylesheet">
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/daterangepicker/daterangepicker.css" rel="stylesheet">
+<link rel="stylesheet" href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/dropify/dist/css/dropify.min.css">
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/wizard/steps.css" rel="stylesheet">
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinModern.css" rel="stylesheet">
+
+
+@endpush
+
+@push('after-scripts')
+
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/ion-rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/sweetalert/sweetalert.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/icheck/icheck.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/icheck/icheck.init.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/dropify/dist/js/dropify.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/wizard/jquery.validate.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/wizard/jquery.steps.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/moment/moment.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/daterangepicker/daterangepicker.js"></script>
+
+
+
+<!-- end - This is for export functionality only -->
+<script>
+    jQuery(document).ready(function($) {
+        $('.dropify').dropify();
+        var form = $(".tab-wizard").show();
+
+        $(".tab-wizard").steps({
+            headerTag: "h6",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            titleTemplate: '<span class="step">#index#</span> #title#',
+            labels: {
+                finish: "Submit"
+            },
+            onStepChanging: function(event, currentIndex, newIndex) {
+                console.log(currentIndex);
+                if (currentIndex == 0) {
+                    $("#range_01").ionRangeSlider({
+                        min: 10,
+                        max: 100,
+                        from: 1,
+                        to: 100,
+                        postfix: "%",
+                        suffix: "%",
+                    });
+                    $("#holiday").ionRangeSlider({
+                        min: 1,
+                        max: 30,
+                        postfix: "week",
+                        suffix: "week",
+                    });
+
+                }
+                return currentIndex > newIndex || !(3 === newIndex && Number($("#age-2").val()) < 18) && (currentIndex < newIndex && (form.find(".body:eq(" + newIndex + ") label.error").remove(), form.find(".body:eq(" + newIndex + ") .error").removeClass("error")), form.validate().settings.ignore = ":disabled,:hidden", form.valid())
+            },
+            onFinishing: function(event, currentIndex) {
+                return form.validate().settings.ignore = ":disabled", form.valid()
+            },
+            onFinished: function(event, currentIndex) {
+                form.submit();
+                // swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
+            }
+        }), $(".tab-wizard").validate({
+            ignore: "input[type=hidden]",
+            errorClass: "text-danger",
+            successClass: "text-success",
+            highlight: function(element, errorClass) {
+                $(element).removeClass(errorClass)
+            },
+            unhighlight: function(element, errorClass) {
+                $(element).removeClass(errorClass)
+            },
+            errorPlacement: function(error, element) {
+                error.insertAfter(element)
+            },
+            rules: {
+                email: {
+                    email: !0
+                }
+            }
+        })
+
+
+
+        $('.sMade').on('change', function(e) {
+            var chk = e.target.checked;
+            var val = e.target.value;
+            if (chk == false) {
+                zx = val;
+                table.search(val).draw(true);
+            } else {
+                zx = '';
+                table.search(val).draw(true);
+            }
+        });
+
+        $("#srch").on('keyup click', function() {
+            table.search($(this).val()).draw();
+        });
+
+        $('.daterange').daterangepicker();
+        $('#emp_date').daterangepicker({
+            singleDatePicker: true,
+            showDropdowns: true
+        });
+        $('.daterange').on('apply.daterangepicker', function(ev, picker) {
+            startDate = picker.startDate.format('YYYY-MM-DD');
+            endDate = picker.endDate.format('YYYY-MM-DD');
+            table.search('').draw();
+        });
+    });
+</script>
+
+<script>
+
+// Script for the options
+
+$(document).on('change','.depart', function() {
+  var id=$(this).val();
+  $(".roles").val("");
+
+  if(id !=null){
+    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: 'POST',
+                        url: '{{ url("/get/roles") }}',
+                        data: {'id':id},
+
+                    }).done(function(data) {
+                      //console.log(data);
+                        if (data.success === true) {
+                            $('.preloader').hide();
+                            $(".roles").attr("disabled",false);
+                                $(".roles").html(data.option);
+                        } else {
+                            $('.preloader').hide();
+                            $(".roles").attr("disabled",true);
+
+                        }
+                    });
+      
+  }
+});
+
+//script for the pre form data
+
+$(document).on('change','.roles', function() {
+    var id=$(this).val();
+if(id !=null){
+    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: 'POST',
+                        url: '{{ url("/get/data") }}',
+                        data: {'id':id},
+
+                    }).done(function(res) {
+                        if (res.success == true) {
+                            var salary = res.data.salary;
+                            var holiday = res.data.holiday;
+                            var nightshift = res.data.nighshift;
+                            console.log(holiday);
+                            
+
+                            var overtime= res.data.over_time;    
+
+                           $('#salary').val(salary);
+                           $('#range_01').val(overtime);
+                           $('#nightshift').val(nightshift);
+                           $('#holiday').val(holiday);
+
+                            $('.preloader').hide();
+                              // $(".roles").html(data.option);
+                        } else {
+                            $('.preloader').hide();
+                            $(".roles").attr("disabled",true);
+
+                        }
+                    });
+      
+  }
+});
+
+
+</script>
+
+@endpush
+
+@section('content')
+
+@include('common.errors')
+@include('common.success')
+<div class="row page-titles">
+    <div class="col-md-6 col-8 align-self-center">
+        <h3 class="text-themecolor mb-0 mt-0">Ansatte</h3>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Oversikt over foretakets ansatte</li>
+        </ol>
+    </div>
+    <div class="col-md-6 col-4 align-self-center">
+        {{--<button class="right-side-toggle waves-effect waves-light btn-info btn-circle btn-sm float-right ml-2"><i class="ti-settings text-white"></i></button>
+       <a href="{{ url('foretak/kontakt/ny')}}" class="btn float-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i>Legg til ny kontakt</a>
+        --}}
+        <a data-toggle="modal" data-target="#verticalcenter" class="btn float-right hidden-sm-down btn-success"><i class="mdi mdi-plus-circle"></i>Legg til ny Ansatte</a>
+    </div>
+</div>
+{{--<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4>Innstillinger</h4>
+                <hr>
+                <br>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Kategori</label>
+
+                            <select name="category" id="catid" required class="form-control">
+                                <option selected value=''>Alle</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>--}}
+<div class="row">
+    <!-- .col -->
+
+    @if($eData)
+    @foreach($eData as $data)
+    <div class="col-md-6 col-lg-6 col-xlg-4">
+        <div class="card card-body clickbody">
+            <a href="{{ url('/ansatte/employee/'.$data->id) }}" class="clickview"></a>
+            <div class="row">
+                @php
+                if ($data->profile_image) {
+                $path = '/file_uploader/company/'.$data->companyId.'/employee/profile/'. $data->id .'/'. $data->profile_image ;
+                }else{
+                $path = "/vendor/wrappixel/monster-admin/4.2.1/assets/images/users/1.jpg";
+                }
+                @endphp
+                <div class="col-md-4 col-lg-3 text-center">
+                    <a href="app-contact-detail.html"><img src=" {{ asset($path) }}" alt="user" class="img-circle img-responsive"></a>
+                </div>
+
+                <div class="col-md-8 col-lg-9">
+                    <h4 class="mb-0">{{ ucfirst($data->name )}}</h4>
+                    <small> {{ $data->user_role }}Web Designer</small>
+                    <address>
+                        {{ $data->address }}
+                        {{ $data->city }} , {{ $data->zipcode }}<br>
+                        <abbr title="Telefonenummer">*</abbr>{{ $data->phone }}
+                    </address>
+                </div>
+                <div class="col-md-6">
+                    <small>Ansatt siden: {{ $data->employed_since }}</small><br>
+                    <small>Antall vedlegg: 9</small>
+                </div>
+                @php
+                $depen = \DB::table("dependants")->where("employee_id",$data->id)->first();
+                @endphp
+                @if($depen)
+                <div class="col-md-6">
+                    <small> Pårørende : {{ $depen->dName }}</small><br>
+                    <small>{{ $depen->dPhone }}</small>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
+</div>
+
+
+<!-- sample modal content -->
+<div id="verticalcenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vcenter">Add Contact</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body wizard-content ">
+                                <form action='{{ url("/ansatte/add/employee") }}' method="post" enctype="multipart/form-data" class="tab-wizard vertical wizard-circle">
+                                    <!-- Step 1 -->
+                                    <h6>Personal Info</h6>
+                                    <section>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Navn</label>
+                                                    <input type="text" name="name" value="{{ (old('name') != '' ) ? old('name') : (isset($uData->name) ? $uData->name : '') }}" required class="form-control">
+                                                    <small class="invalid-feedback"> Name is required </small>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">E-post</label>
+                                                    <input type="email" required name='epost' class="form-control  form-control-danger" value="{{ (old('epost') != '' ) ? old('epost') : (isset($uData->epost) ? $uData->epost : '') }}">
+                                                    <small class="invalid-feedback"> E-post is required </small>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Adresse</label>
+                                                    <input type="text" required name="address" class="form-control  form-control-danger" value="{{ (old('address') != '' ) ? old('address') : (isset($uData->address) ? $uData->address : '') }}">
+                                                    <small class="invalid-feedback"> Adresse required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Poststed</label>
+                                                    <input type="text" required name='city' class="form-control  form-control-danger" value="{{ (old('city') != '' ) ? old('city') : (isset($uData->city) ? $uData->city : '') }}">
+                                                    <small class="invalid-feedback"> Poststed required </small>
+                                                    <input type="hidden" name="id" value="{{ isset($iData->id) ? ($iData->id != 0 ) ? $iData->id : '' :''}}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Telefonnummer</label>
+                                                    <input type="number" required name="phone" class="form-control  form-control-danger" value="{{ (old('phone') != '' ) ? old('phone') : (isset($uData->phone) ? $uData->phone : '') }}">
+                                                    <small class="invalid-feedback"> Telefonnummer is required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Postnummer</label>
+                                                    <input type="number" required name="zipcode" class="form-control  form-control-danger" value="{{ (old('zipcode') != '' ) ? old('zipcode') : (isset($uData->zip_code) ? $uData->zip_code : '') }}">
+                                                    <small class="invalid-feedback"> Postnummer is required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @php
+                                        $cid = \Auth::User()->companyId;
+                                        $departments = \DB::table('companydepartment')->where('companyId', $cid)->get();
+                                        $companyroles = \DB::table('companyroles')->where('companyId', $cid)->get();
+                                        @endphp
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Avdeling</label>
+                                                    @if($departments)
+                                                    <select name="department" class="form-control custom-select depart" >
+                                                        <option value="">Velg kategori</option>
+                                                        @foreach($departments as $data)
+                                                        
+                                                        <option value="{{ $data->id }}">{{ $data->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <small class="invalid-feedback"> Kategori a category </small>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Title</label>
+                                                    <select name="role" required  disabled class="form-control custom-select roles">
+                                                    <option value="0" >Select Rolle</option>
+                                                    </select>
+                                                    <small class="invalid-feedback"> Rolle required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    
+                                    <h6>Additional Info</h6>
+                                    
+                                    <section>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Personnummer</label>
+                                                    <input type="text" name="personal_no" class="form-control  form-control-danger" value="{{ (old('personal_no') != '' ) ? old('personal_no') :  '' }}">
+                                                    <small class="invalid-feedback"> Navn required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Nearest Manager</label>
+                                                    <input type="text" name='near_manager' class="form-control  form-control-danger" value="{{ (old('near_manager') != '' ) ? old('near_manager') : '' }}">
+                                                    <small class="invalid-feedback"> Phone required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Employment Date</label>
+                                                    <input type="text" name='emp_date' id="emp_date" class=" form-control  form-control-danger" value="{{ (old('emp_date') != '' ) ? old('emp_date') : '' }}">
+                                                    <small class="invalid-feedback"> Phone required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Employment Percentage</label>
+                                                    <input type="text" name="emp_percentage" class="form-control  form-control-danger" value="{{ (old('emp_percentage') != '' ) ? old('emp_percentage') :  '' }}">
+                                                    <small class="invalid-feedback"> this required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Salary</label>
+                                                    <input type="text" id="salary" name='salary' class="form-control  form-control-danger" value="{{ (old('Salary') != '' ) ? old('salary') : '' }}">
+                                                    <small class="invalid-feedback"> Salary required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Over time</label>
+                                                    <input type="text" id="range_01" name="over_time" class="form-control  form-control-danger" value="{{ (old('over_time') != '' ) ? old('over_time') :  '' }}">
+                                                    <small class="invalid-feedback"> this required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Night shift allowance</label>
+                                                    <input type="text" id="nightshift" name='nighshift' class="form-control  form-control-danger" value="{{ (old('nightshift') != '' ) ? old('nightshift') : '' }}">
+                                                    <small class="invalid-feedback"> Salary required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Tax area</label>
+                                                    <input type="text" name="tax_area" class="form-control  form-control-danger" value="{{ (old('over_time') != '' ) ? old('over_time') :  '' }}">
+                                                    <small class="invalid-feedback"> this required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Avvountnumber</label>
+                                                    <input type="text" name='acount_no' class="form-control  form-control-danger" value="{{ (old('Salary') != '' ) ? old('salary') : '' }}">
+                                                    <small class="invalid-feedback"> Avvountnumber required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Holiday</label>
+                                                    <input type="text" id="holiday" name="holiday" class="form-control  form-control-danger" value="{{ (old('over_time') != '' ) ? old('over_time') :  '' }}">
+                                                    <small class="invalid-feedback"> Holiday required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                               
+
+                                    <h6>Dependants</h6>
+                                    <section>
+                                        <div class="row">
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+                                                    <label class="control-label">Navn</label>
+                                                    <input type="text" name="dNavn" class="form-control  form-control-danger" value="{{ (old('dNavn') != '' ) ? old('cNavn') : (isset($uData->cNavn) ? $uData->cNavn : '') }}">
+                                                    <small class="invalid-feedback"> Navn required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Phone</label>
+                                                    <input type="text" name='dphone' class="form-control  form-control-danger" value="{{ (old('dphone') != '' ) ? old('cPhone') : (isset($uData->Phone) ? $uData->cPhone : '') }}">
+                                                    <small class="invalid-feedback"> Phone required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                    <label class="control-label">Relation</label>
+                                                    <input type="text" name="relation" class="form-control  form-control-danger" value="{{ (old('epost') != '' ) ? old('cEpost') : (isset($uData->cEpost) ? $uData->cEpost : '') }}">
+                                                    <small class="invalid-feedback"> E-post required </small>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </section>
+                                    <!-- Step 4 -->
+                                    <h6>Dokumenter</h6>
+                                    <section>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="input-file-now-custom-3">Upload You document</label>
+                                                    <input type="file" name="profile_pic" id="input-file-now-custom-3" class="dropify" data-height="200" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+        <script>
+            function update() {
+                var form = $('.tab-wizard');
+
+
+                var datax = new FormData((form)[0]);
+                console.log(datax);
+                if (datax != "") {
+
+                    // $('.preloader').show();
+                    $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: 'POST',
+                        url: '{{ url("/ansatte/add/employee") }}',
+                        data: datax,
+                    }).done(function(data) {
+                        if (data.success == true) {
+                            $('.preloader').hide();
+                            swal(data.msg, " ", "success").then(function() {
+                                location.reload();
+                            });
+                        } else {
+                            $('.preloader').hide();
+                            printErrorMsg(data.error);
+
+                        }
+                    });
+                }
+            }
+
+            function printErrorMsg(msg) {
+                $(".print-error-msg").find("ul").html('');
+                $(".print-error-msg").css('display', 'block');
+                $.each(msg, function(key, value) {
+                    $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
+                });
+            }
+        </script>
+
+
+        @endsection

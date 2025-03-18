@@ -1,0 +1,1174 @@
+@extends('templates.monster.main')
+@push('after-styles')
+<style>
+    .vtabs {
+        width: 100%;
+    }
+</style>
+<link href="{{ asset('/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/dropify/dist/css/dropify.min.css">
+<!-- summernotes CSS -->
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/summernote/dist/summernote-bs4.css" rel="stylesheet" />
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/wizard/steps.css" rel="stylesheet">
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+<link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/ion-rangeslider/css/ion.rangeSlider.skinModern.css" rel="stylesheet">
+
+@endpush
+
+
+
+@section('content')
+<div class="row page-titles">
+    <div class="col-md-6 col-8 align-self-center">
+        <h3 class="text-themecolor mb-0 mt-0">Mitt foretak</h3>
+    </div>
+</div>
+
+
+@include('common.errors')
+@include('common.success')
+<ul class="nav  customtab" role="tablist">
+
+
+    <li class="">
+        <a class="nav-link" data-toggle="tab" href="#tab4" role="tab">
+            <span class="hidden-sm-up"> <i class="ti-home"></i></span>
+            <span class="hidden-xs-down">Mitt foretak</span>
+        </a>
+    </li>
+    <li class="">
+        <a class="nav-link   " data-toggle="tab" href="#tab6" role="tab">
+            <span class="hidden-sm-up"> <i class="ti-home"></i></span>
+            <span class="hidden-xs-down">HMS-mål</span>
+        </a>
+    </li>
+    <li class="">
+        <a class="nav-link  active " data-toggle="tab" href="#settings" role="tab">
+            <span class="hidden-sm-up"> <i class="ti-home"></i></span>
+            <span class="hidden-xs-down">Settings</span>
+        </a>
+    </li>
+
+
+</ul>
+<div class="tab-content  ">
+    <div class="tab-pane    " id="tab4" role="tabpanel" style="padding: 50px;">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-outline-warning">
+                    <div class="card-header">
+                        <h4 class="mb-0 text-white">Foretak </h4>
+                    </div>
+                    <div class="card-body">
+                        <center>
+                            <div class="row text-center justify-content-md-center" style="margin-top:10%;">
+                                <img src="{{ asset(isset($cData->logo) ? '/file_uploader/documents/'.\Auth::user()->companyId .'/companylogo/'.$cData->logo : '') }}" class="img-reactangle" width="150">
+                            </div>
+                            <div style="margin-top:8%;">
+                                <h4 class="card-title" style="align:center;">{{ isset($cData->company_name) ? ucfirst($cData->company_name) : ''}}</h4>
+                            </div>
+                            <div style="margin-top:6%;">
+                                <table class=" justify-content-md-center">
+                                    <tr>
+                                        <th>Organisasjonsnummer : </th>
+                                        <td> <span class="card-text">{{ isset($cData->vat_number) ? $cData->vat_number: ''}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Adresse :</th>
+                                        <td><span class="card-text">{{ isset($cData->address) ? $cData->address : ''}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Poststed : </th>
+                                        <td><span class="card-text">{{ isset($cData->city) ? $cData->city : ''}}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Postnummer : </th>
+                                        <td> <span class="card-text">{{ isset($cData->zip_code) ? $cData->zip_code : ''}}</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <hr class="mt-5">
+                        </center>
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#verticalcenter" class="btn btn-inverse editContact">Endre kontakt</a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-5">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="mb-0 text-white">Add. details</h4>
+                            </div>
+                            <div class="card-body">
+                                <center>
+                                    <table>
+                                        <tr>
+                                            <th> Job Title :</th>
+                                            <td><span class="card-text">{{ isset($cData->ceo) ? $cData->ceo : ''}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th> Full Time Emp :</th>
+                                            <td><span class="card-text">{{ isset($cData->full_time_emp ) ? $cData->full_time_emp : ''}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th> Half Time Emp : </th>
+                                            <td><span class="card-text">{{ isset($cData->half_time_emp ) ? $cData->half_time_emp : ''}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th> HSE-Cards :</th>
+                                            <td> <span class="card-text">{{ isset($cData->hse_cards ) ? $cData->hse_cards : ''}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th> Safety Reps :</th>
+                                            <td> <span class="card-text">{{ isset($cData->safety_representatives ) ? $cData->safety_representatives : ''}}</span></td>
+                                        </tr>
+                                    </table>
+                                    <hr class="mt-2">
+                                </center>
+                                <a href="javascript:void(0);" data-target="#kontact" data-toggle="modal" class="btn btn-inverse">Endre Details</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+                            <div class="card-header">
+                                <h4 class="mb-0 text-white">Dokumenter</h4>
+                            </div>
+                            <div class="card-body">
+                                <hr class="mt-5">
+                                <a href="javascript:void(0);" class="btn btn-inverse" data-target="#document" data-toggle="modal">Endre dokument</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane  " id="tab6" role="tabpanel">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="click2edit mb-5">Click on Edite button and change the text then save it.</div>
+                                <button id="edit" class="btn btn-info btn-rounded" onclick="edit()" type="button">Edit</button>
+                                <button id="save" class="btn btn-success btn-rounded" onclick="save()" type="button">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane active" id="settings" role="tabpanel">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="vtabs ">
+                        <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                            <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#departments" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Departments</span> </a> </li>
+                            <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#jobtitle" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Job Title</span></a> </li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="departments" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <a href="JavaScript:void(0);" class="btn btn-outline btn-success btn-sm add_dep">Add Department <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table class="table  table-hover toggle-circle default footable-loaded footable" id="users-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Department</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                      @if($departments)
+                                                        @foreach($departments as $key=>$data)
+                                                        <tr>
+                                                            <td><a href="JavaScript:void(0);" class="deptitle" data-id="{{ $data->id }}" data-name="{{ $data->name }}" >
+                                                             {{ $data->name }}</a></td>
+                                                         </tr>
+                                                        @endforeach
+                                                      @else
+                                                    <tr>
+                                                        <td colspan="3">No record found.</td>
+                                                    </tr>
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!---Jpobitit-->
+                            <div class="tab-pane " id="jobtitle" role="tabpanel">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <a href="JavaScript:void(0);" class="btn btn-outline btn-success btn-sm add_job">Add Jobs <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table class="table  table-hover toggle-circle default footable-loaded footable" id="users-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Job Name</th>
+                                                        <th>Department</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                @if($companyroles)
+                                                        @foreach($companyroles as $key=>$data)
+                                                        <tr>
+                                                            <td><a href="JavaScript:void(0);" class="jbtitle" data-id="{{ $data->id }}" data-name="{{ $data->jobtitle }}" >
+                                                             {{ $data->jobtitle }}</a></td>
+                                                            <td>
+                                                                 @php
+                                                                 $dname = \DB::table("companydepartment")->select("name")->where("id",$data->department)->first();
+                                                                 @endphp
+                                                            {{ $dname->name }}</td>
+                                                         </tr>
+                                                        @endforeach
+                                                      @else
+                                                    <tr>
+                                                        <td colspan="3">No record found.</td>
+                                                    </tr>
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<!--Kontatct Modal -->
+<div id="verticalcenter" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vcenter">Company Info</h4>
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+                <form action="javascript:void(0);" class="needs-validation" novalidate>
+                    {{ csrf_field() }}
+                    <div class="row pt-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Company Name</label>
+                                <input type="text" required name="company_name" class="form-control" value="{{ (old('company_name') != '' ) ? old('company_name') : (isset($cData->company_name) ? $cData->company_name : '') }}">
+                                <small class="invalid-feedback"> Comapny Name is required </small>
+                                <input type="hidden" name="id" value="{{ isset($cData->id) ?  $cData->id  :  '' }}" />
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="control-label">VAT-number</label>
+                                <input type="number" value="{{ (old('vat_no') != '' ) ? old('vat_no') : (isset($cData->vat_number) ? $cData->vat_number : '') }}" name="vat_no" required class="form-control form-control-danger">
+                                <small class="invalid-feedback"> Vat-number is required </small>
+
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="control-label">Industry</label>
+                                <input type="number" name="industry" required class="form-control form-control-danger" value="{{ (old('industry') != '' ) ? old('industry') : (isset($cData->industry) ? $cData->industry : '') }}">
+                                <small class="invalid-feedback"> Industry is required </small>
+
+                            </div>
+                        </div>
+                        <!--/span-->
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Business sector code </label>
+                                <input type="number" required class="form-control" name="sector_code" value="{{ (old('sector_code') != '' ) ? old('sector_code') : (isset($cData->sector_code) ? $cData->sector_code : '') }}">
+                                <small class="invalid-feedback"> Sector Code is required </small>
+
+                            </div>
+                        </div>
+                        <!--/span-->
+                    </div>
+                    <!--/row-->
+                    <h3 class="box-title mt-5">Adresse</h3>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Adresse</label>
+                                <input type="text" required name="address" class="form-control  form-control-danger" value="{{ (old('address') != '' ) ? old('address') : (isset($cData->address) ? $cData->address : '') }}">
+                                <small class="invalid-feedback"> Address is required </small>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="form-group">
+                                <label>Poststed</label>
+                                <input type="text" required name='city' class="form-control  form-control-danger" value="{{ (old('city') != '' ) ? old('city') : (isset($cData->city) ? $cData->city : '') }}">
+                                <small class="invalid-feedback"> Poststed is required </small>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Postnummer</label>
+                                <input type="text" required name="zipcode" class="form-control  form-control-danger" value="{{ (old('zipcode') != '' ) ? old('zipcode') : (isset($cData->zip_code) ? $cData->zip_code : '') }}">
+                                <small class="invalid-feedback"> zipcode is required </small>
+
+                            </div>
+                        </div>
+
+                        <!--/span-->
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success"> <i class="fa fa-check"></i> Save</button>
+                        <button type="button" class="btn btn-inverse">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+</div>
+<!-- Contak person modal -->
+<div id="kontact" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vcenter">Additional Info</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+                <form action="javascript:void(0);" class="cvalid" novalidate>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">Job Title</label>
+                        <div class="col-lg-9">
+                            <input type="text" required name='ceo' class="form-control " value="{{ (old('ceo') != '' ) ? old('ceo') : (isset($cData->ceo) ? $cData->ceo : '') }}">
+                            <small class="invalid-feedback">Job Title </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">Full Time Employee</label>
+                        <div class="col-lg-9">
+                            <input type="text" required name="full_time_emp" class="form-control " value="{{ (old('full_time_emp') != '' ) ? old('full_time_emp') : (isset($cData->full_time_emp) ? $cData->full_time_emp : '') }}">
+                            <input type="hidden" name="type" value="2">
+                            <small class="invalid-feedback"> Full Time Employee</small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">Half Time Employee</label>
+                        <div class="col-lg-9">
+                            <input type="text" required name='half_time_emp' class="form-control " value="{{ (old('half_time_emp') != '' ) ? old('half_time_emp') : (isset($cData->half_time_emp) ? $cData->half_time_emp : '') }}">
+                            <small class="invalid-feedback">Half Time Employee </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">HSE-Cards</label>
+                        <div class="col-lg-9">
+                            <input type="text" required name="hse_cards" class="form-control  form-control-danger" value="{{ (old('hse_cards') != '' ) ? old('hse_cards') : (isset($cData->hse_cards) ? $cData->hse_cards : '') }}">
+                            <small class="invalid-feedback">Hse-cards required </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-3">Safety Representatives</label>
+                        <div class="col-lg-9">
+                            <input type="text" required name="safety_representatives" class="form-control  form-control-danger" value="{{ (old('safety_representatives') != '' ) ? old('safety_representatives') : (isset($cData->safety_representatives) ? $cData->safety_representatives : '') }}">
+                            <small class="invalid-feedback">Safety representatives is required </small>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success waves-effect text-left">Lagre</button>
+                {{--<button type="button" class="btn btn-danger waves-effect text-left">Sellte</button>--}}
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div id="document" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered " style="max-width:800px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vcenter">Dokumenter</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+                <form action="{{url('/company/logo')}}" class="clogo" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+
+                    <!-- New added field -->
+
+                        <div class="row ">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" id="navn">Filnavn</label>
+                                    <input type="text" id="name" name="name" value="{{ (old('name') != '' ) ? old('name') : (isset($rData->name) ? $rData->name : '') }}" required class="form-control">
+                                    <small class="invalid-feedback"> Navn is required </small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    <label class="control-label">Kategori</label>
+                                    @php
+                                    $cat = \DB::table("all_category")->where("companyId",\Auth::user()->companyId)->where("table_name","documents")->get();
+                                    $cate = [];
+
+                                    if(isset($rData->category)){
+                                    $cate = explode("," , $rData->category);
+                                    }
+                                    if(isset($tData->category_id)){
+                                    $cate = explode("," , $tData->category_id);
+                                    }
+                                    @endphp
+                                    @if($cat)
+                                    <select name="category" id="cat" required class="form-control">
+                                        <option value=''>Velg kategori</option>
+                                        @foreach($cat as $data)
+                                        <option {{ (isset($data->id) && in_array($data->id,$cate) ? 'selected' : '') }} {{ (isset($rData->category_id) && ($rData->category_id == $data->id )) ? "selected" : '' }} value="{{ $data->id }}">{{ $data->des}}</option>
+                                        @endforeach
+                                    </select>
+                                    <small class="invalid-feedback"> Kategori required </small>
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                <!-- Attachment Type -->
+                                    <label class="control-label">Vedleggstype</label>
+                                    <select name="category" id="cat" required class="form-control">
+                                        <option value=''>Velg kategori</option>
+                                        </select>
+                                    <small class="invalid-feedback"> Kategori required </small>
+
+                                </div>    
+                                    
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                <!-- Attachment Type -->
+                                    <label class="control-label">Filformat</label>
+                                    <select name="category" id="cat" required class="form-control">
+                                        <option value=''>Velg kategori</option>
+                                        </select>
+                                    <small class="invalid-feedback"> Kategori required </small>
+                                </div>    
+                            </div>
+
+                        </div>
+                        <!-- New added field ended -->
+
+                    <div class="row pt-3">
+                        <div class="col-md-12">
+                            <div class="form-group">
+
+                                <input type="file" name="logo" class="dropify" />
+                                <input type="hidden" name="type" value="3">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success waves-effect text-left">Lagre</button>
+                        {{--<button type="button" class="btn btn-danger waves-effect text-left">Sellte</button>--}}
+                    </div>
+                </form>
+
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</div>
+
+
+<div id="department_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vcenter">Create Department</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+                <form action="javascript:void(0);"  class="deprt" novalidate>
+                    <div class="form-group row">
+                        <label class="control-label col-lg-6">Department Name</label>
+                        <div class="col-lg-9">
+                            <input type="text" required name='dprtname' id="dprtname" class="form-control " value="{{ (old('dprtname') != '' ) ? old('dprtname') : '' }}">
+                            <input type="hidden" id="dprtid" value="">
+                            <small class="invalid-feedback dp">Name Required</small> </small>
+                        </div>
+                    </div>
+                <button type="submit" class="btn btn-xs btn-success waves-effect text-left save_dep">Lagre</button>
+                <button type="button" data-id="" data-table="companydepartment" class="btn btn-xs btn-danger waves-effect text-left del_dep">Delete</button>
+                {{--<button type="button" class="btn btn-danger waves-effect text-left">Sellte</button>--}}
+            </div>
+            </form>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- sample modal content -->
+<div id="job_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vcenter" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vcenter">Create Job Title</h4>
+                <button type="button" class="close" id="cls" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <!----Form Data -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body wizard-content ">
+                                <form action='{{ url("/add/job") }}' method="post" enctype="multipart/form-data" class="jobform vertical wizard-circle">
+
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Job Title</label>
+                                                    <input type="text"  required name="jobtitle" class="form-control  form-control-danger jobtitle" value="">
+                                                    <small class="invalid-feedback"> Job Title required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Avdeling</label>
+
+                                                    @if($departments)
+                                                    <select name="department"  required class="form-control custom-select dep">
+                                                        <option value="">Velg Avdeling</option>
+                                                        @foreach($departments as $data)
+                                                        <option value="{{ $data->id }}">{{ $data->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <small class="invalid-feedback"> Kategori a category </small>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="xid" name="id" value="" />
+                                                {{ csrf_field() }}
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Salary</label>
+                                                    <input type="text" name='salary' class="form-control  form-control-danger salary" value="{{ (old('Salary') != '' ) ? old('salary') : '' }}">
+                                                    <small class="invalid-feedback"> Salary required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Over time</label>
+                                                    <input type="text" id="range_01" name="over_time" class="form-control  form-control-danger" value="{{ (old('over_time') != '' ) ? old('over_time') :  '' }}">
+                                                    <small class="invalid-feedback"> this required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Night shift allowance</label>
+                                                    <input type="text" name='nighshift' class="form-control  form-control-danger nighshift" value="{{ (old('Salary') != '' ) ? old('salary') : '' }}">
+                                                    <small class="invalid-feedback"> Salary required </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Holiday</label>
+                                                    <input type="text" id="holiday" name="holiday" class="form-control  form-control-danger" value="{{ (old('over_time') != '' ) ? old('over_time') :  '' }}">
+                                                    <small class="invalid-feedback"> Holiday required </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-x btn-success waves-effect text-left save_dep">Lagre</button>
+                <button type="button" data-id="" data-table="companydepartment" class="btn btn-x btn-danger waves-effect text-left del_roles">Delete</button>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+@push('after-scripts')
+
+<!-- jQuery file upload -->
+<script src="/vendor/wrappixel/monster-admin/4.2.1/monster/js/jasny-bootstrap.js"></script>
+
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/dropify/dist/js/dropify.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/sweetalert/sweetalert.min.js"></script>
+
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/ion-rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/wizard/jquery.validate.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/wizard/jquery.steps.min.js"></script>
+<script src="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/summernote/dist/summernote-bs4.min.js"></script>
+<script>
+    jQuery(document).ready(function() {
+        // $('.click2edit').summernote('code', { !!isset($content - > content) ? json_encode($content - > content) : ''!! });
+        $(".click2edit").summernote('destroy');
+
+        $('.summernote').summernote({
+            height: 350, // set editor height
+            minHeight: null, // set minimum height of editor
+            maxHeight: null, // set maximum height of editor
+            focus: false // set focus to editable area after initializing summernote
+        });
+
+        $('.inline-editor').summernote({
+            airMode: true
+        });
+
+
+    });
+
+    window.edit = function() {
+            $(".click2edit").summernote()
+        },
+        window.save = function() {
+            var textareaValue = $('.click2edit').summernote('code');
+            $(".click2edit").summernote('destroy');
+            if (textareaValue != "") {
+                swal({
+                    title: "Advarsel",
+                    text: "Vil du Save Changes?!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ja, Save!",
+                    cancelButtonText: "Avbryt",
+                }).then(result => {
+                    // swal("Slettet!", "Sletting utført.", "success");
+                    $('.preloader').show();
+
+                    if (result.value) {
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: 'POST',
+                            url: '{{ url("/add/hse") }}',
+                            data: {
+                                'text': textareaValue
+                            },
+
+                        }).done(function(msg) {
+                            if (msg == 0) {
+                                $('.preloader').hide();
+                                swal("Saved!", " ", "success").then(function() {});
+                            } else {
+                                $('.preloader').hide();
+                                swal("error !", " ", "error").then(function() {
+                                    location.reload();
+                                });
+                            }
+                        });
+
+                    } else if (
+                        // Read more about handling dismissals
+                        result.dismiss === swal.DismissReason.cancel
+                    ) {
+                        swal("Avbrutt", "Ingen ting ble slettet!", "error");
+                    }
+                    swal.closeModal();
+                });
+
+            }
+        }
+    $(document).ready(function() {
+        // Basic
+        $('.dropify').dropify();
+        $('.add_dep').on("click",function(){
+            $("#dprtname").val('');
+
+            $("#department_modal").modal("show");
+       })
+        $('.deptitle').on("click",function(){
+            var id= $(this).data('id');
+            var name= $(this).data('name');
+            $("#dprtid").val(id);
+            $("#dprtname").val(name);
+            $(".del_dep").attr('data-id',id);
+            $("#department_modal").modal("show");
+       })
+        $('.add_job').on("click",function(){
+            $("#job_modal").modal("show");
+       });
+       var form = $(".tab-wizard").show();
+       $("#range_01").ionRangeSlider({
+                        min: 10,
+                         max: 100,
+                        from: 1,
+                        to: 100,
+                        postfix: "%",
+                        suffix: "%",
+                    });
+                    $("#holiday").ionRangeSlider({
+                        min: 1,
+                         max: 30,
+                        postfix: "week",
+                        suffix: "week",
+                    });
+
+
+    });
+
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+
+<script>
+    jQuery(document).ready(function() {
+
+        $(".deprt").on("submit", function(e) {
+            e.preventDefault();
+            var id = 0;
+            id = $('#dprtid').val();
+            var dep = $('#dprtname').val();
+            if (dep != "") {
+                $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: 'POST',
+                            url: '{{ url("/add/department") }}',
+                            data: {
+                                'id': id,
+                                "name": dep
+                            },
+
+                        }).done(function(msg) {
+                            if (msg == 0) {
+                                $('.preloader').hide();
+                                //  e.closest('tr').remove();
+                                swal("Added!", " ", "success").then(function() {
+                                    location.reload();
+                                });
+                            } else {
+                                $('.preloader').hide();
+                                swal("error !", " ", "error").then(function() {
+                                    // location.reload();
+                                });
+                            }
+                        });
+            }else{
+                $('.dp').show();
+            }
+
+        });
+
+        $(".del_dep").on("click", function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var table = $(this).data('table');
+            if (id != "") {
+
+                swal({
+                    title: "Advarsel",
+                    text: "Are you sure want to delet!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ja, Save!",
+                    cancelButtonText: "Avbryt",
+                }).then(result => {
+                    // swal("Slettet!", "Sletting utført.", "success");
+                    $('.preloader').show();
+
+                    if (result.value) {
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: 'POST',
+                            url: '{{ url("/delete/department") }}',
+                            data: {
+                                'id': id,
+                                "table": table
+                            },
+
+                        }).done(function(msg) {
+                            if (msg == 0) {
+                                $('.preloader').hide();
+                                    swal("Deleted!", " ", "success").then(function() {
+                                        location.reload();
+
+                                });
+                            } else {
+                                $('.preloader').hide();
+                                swal("error !", " ", "error").then(function() {
+                                   //  location.reload();
+                                });
+                            }
+                        });
+
+                    } else if (
+                        // Read more about handling dismissals
+                        result.dismiss === swal.DismissReason.cancel
+                    ) {
+                        swal("Avbrutt", "Ingen ting ble slettet!", "error");
+                    }
+                    $('.preloader').hide();
+
+                    swal.closeModal();
+                });
+
+            }
+
+        });
+        $(".del").on("click", function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            if (id != "") {
+
+                swal({
+                    title: "Advarsel",
+                    text: "Are you sure want to delet!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ja, Save!",
+                    cancelButtonText: "Avbryt",
+                }).then(result => {
+                    // swal("Slettet!", "Sletting utført.", "success");
+                    $('.preloader').show();
+
+                    if (result.value) {
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: 'POST',
+                            url: '{{ url("/delete/contact") }}',
+                            data: {
+                                'id': id,
+                                "table": "contactperson"
+                            },
+
+                        }).done(function(msg) {
+                            if (msg == 0) {
+                                $('.preloader').hide();
+                                //  e.closest('tr').remove();
+
+                                swal("Deleted!", " ", "success").then(function() {
+                                    $(this).parents('tr').first().hide();
+
+                                });
+                            } else {
+                                $('.preloader').hide();
+                                swal("error !", " ", "error").then(function() {
+                                    // location.reload();
+                                });
+                            }
+                        });
+
+                    } else if (
+                        // Read more about handling dismissals
+                        result.dismiss === swal.DismissReason.cancel
+                    ) {
+                        swal("Avbrutt", "Ingen ting ble slettet!", "error");
+                    }
+                    $('.preloader').hide();
+
+                    swal.closeModal();
+                });
+
+            }
+
+        });
+    });
+
+    function update() {
+        var datax = $('.needs-validation').serialize();
+        if (datax != "") {
+            $('.preloader').show();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '{{ url("/update/company") }}',
+                data: datax,
+            }).done(function(data) {
+                if (data.success == true) {
+                    $('.preloader').hide();
+                    swal(data.msg, " ", "success").then(function() {
+                        location.reload();
+                    });
+                } else {
+                    $('.preloader').hide();
+                    printErrorMsg(data.error);
+
+                }
+            });
+        }
+    }
+
+    function addDetails() {
+        var datax = $('.cvalid').serialize();
+        if (datax != "") {
+
+            // $('.preloader').show();
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: 'POST',
+                url: '{{ url("/company/details") }}',
+                data: datax,
+            }).done(function(data) {
+                if (data.success == true) {
+                    $('.preloader').hide();
+
+                    $("#kontact").modal("hide");
+                    swal(data.msg, " ", "success").then(function() {
+                        location.reload();
+                    });
+                } else {
+                    $('.preloader').hide();
+                    printErrorMsg(data.error);
+
+                }
+            });
+        }
+    }
+
+    function printErrorMsg(msg) {
+        $(".print-error-msg").find("ul").html('');
+        $(".print-error-msg").css('display', 'block');
+        $.each(msg, function(key, value) {
+            $(".print-error-msg").find("ul").append('<li>' + value + '</li>');
+        });
+    }
+
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            var cforms = document.getElementsByClassName('cvalid');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === true) {
+                        event.preventDefault();
+
+                        update(form);
+                    }
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+            var cvalidation = Array.prototype.filter.call(cforms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === true) {
+                        event.preventDefault();
+
+                        addDetails(cforms);
+                    }
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+<script>
+ 
+ //Scripts for the company edit roles
+
+ $('.jbtitle').on("click",function(){
+        $("#job_modal").modal("show");
+        var id=$(this).data('id');
+
+         $("#xid").val(id);
+         $(".del_roles").attr('data-id',id);
+ });
+
+ $('#cls').on('click',function(){
+    $(".jobform").trigger("reset");
+ });
+
+//ajax showing the roles from the database
+ $(document).on('click','.jbtitle',function(e) {
+         var id=$(this).data('id');
+        if(id !=null){
+         $.ajax({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type: 'POST',
+                        url: '{{ url("/get/showRole") }}',
+                        data: {'id':id},
+
+                    }).done(function(res) {
+                        if (res.success == true) {
+                            var salary = res.data.salary;
+                            var jobtitle= res.data.jobtitle;
+                            var dep = res.data.department;
+                            var nightshift = res.data.nighshift;
+
+                           $('.jobtitle').val(jobtitle);
+                           $(".dep").val(dep).change(); 
+                           $('.salary').val(salary);
+                           $('.nighshift').val(nightshift);
+                            $('.preloader').hide();
+                        } else {
+                            $('.preloader').hide();
+                            $(".roles").attr("disabled",true);
+                        }
+                    });
+      
+  }
+});
+
+
+//deleting the jobroles
+
+$(".del_roles").on("click", function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var table = $(this).data('table');
+            if (id != "") {
+                swal({
+                    title: "Advarsel",
+                    text: "Are you sure want to delet!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Ja, Save!",
+                    cancelButtonText: "Avbryt",
+                }).then(result => {
+                    // swal("Slettet!", "Sletting utført.", "success");
+                    $('.preloader').show();
+
+                    if (result.value) {
+                        $.ajax({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            type: 'POST',
+                            url: '{{ url("/delete/roles") }}',
+                            data: {
+                                'id': id,
+                                "table": table
+                            },
+                        }).done(function(msg) {
+                            if (msg == 0) {
+                                $('.preloader').hide();
+                                    swal("Deleted!", " ", "success").then(function() {
+                                        location.reload();
+
+                                });
+                            } else {
+                                $('.preloader').hide();
+                                swal("error !", " ", "error").then(function() {
+                                   //  location.reload();
+                                });
+                            }
+                        });
+                    } else if (
+                        // Read more about handling dismissals
+                        result.dismiss === swal.DismissReason.cancel
+                    ) {
+                        swal("Avbrutt", "Ingen ting ble slettet!", "error");
+                    }
+                    $('.preloader').hide();
+                    swal.closeModal();
+                });
+            }
+        });
+</script>
+@endpush
+@endsection
